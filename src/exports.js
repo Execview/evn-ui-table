@@ -16,7 +16,7 @@ import InPlaceCell from './cells/InPlaceCell/InPlaceCell';
 import TextCell from './cells/TextCell/TextCell';
 import TextFilter, {filter as TextFilterFunction}  from './cells/TextCell/TextFilter';
 
-const module = {
+export {
 	Table,
 	cats,
 	UserRoleDisplay,
@@ -38,4 +38,4 @@ const module = {
 	TextFilterFunction
 }
 
-export default module
+export default Table
