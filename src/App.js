@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { v4 as uuid } from 'uuid';
 import { Button, RightClickMenuWrapper } from '@execview/reusable';
 import TableWrapper from './tableWrapper/TableWrapper';
 import * as actionTypes from './store/actionTypes';
@@ -14,8 +15,6 @@ import ImageDisplay from './cells/ImageDisplay/ImageDisplay';
 import { useThemeApplier, defaultTheme } from '@execview/themedesigner'
 import classes from './App.module.css';
 
-const crypto = require('crypto');
-const hash = crypto.createHash('sha256');
 
 const App = (props) => {
 	useThemeApplier(defaultTheme)
@@ -58,7 +57,7 @@ const App = (props) => {
 
 	const addRow = () => {
 		console.log('adding new row')
-		const newId = '_' + hash.update(Date.now() + Math.random().toString()).digest('hex').substring(0, 5);
+		const newId = '_' + uuid();
 		props.onAddRow(newId, {});
 	}
 	const getContextMenu = (col) => {

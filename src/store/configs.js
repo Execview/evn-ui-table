@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuid } from 'uuid';
 import { TripleFill, CircleUser } from '@execview/reusable';
 import DropdownCell from '../cells/DropdownCell/DropdownCell';
 import ImageDisplay from '../cells/ImageDisplay/ImageDisplay';
@@ -168,14 +169,11 @@ export const newData3 = {
 	_7: { meta: {permission: 1}, activityId: '612422', activityTitle: 'AWDIA', startDate: new Date('2017-08-17T10:39:57.362Z'), latestProgress: '', employeeName: 'Salman', progress: 'amber' }
 };
 
-const crypto = require('crypto');
-const hash = crypto.createHash('sha256');
-
 const columnsInfo0 = columnsInfo1;
 const newData0 = {};
 
 for (let i = 0; i < 120; i++) {
-	const newId = '_' + hash.update(Date.now() + Math.random().toString()).digest('hex').substring(0, 5);
+	const newId = '_' + uuid();
 	newData0[newId] = { meta: {permission: 4}, company: 'McLaren', contact: 'WL', country: 'United Kingdom', value: 26, progress: 'green', dueDate: new Date('2018-03-17T10:39:57.362Z') }
 }
 export { newData0, columnsInfo0 };

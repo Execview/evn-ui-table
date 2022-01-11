@@ -1,4 +1,3 @@
-// import React from 'react';
 import * as actionTypes from './actionTypes';
 import { data } from './configSwitch';
 
