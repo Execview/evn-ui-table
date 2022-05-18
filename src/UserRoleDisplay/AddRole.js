@@ -26,7 +26,7 @@ export default class AddRole extends PureComponent {
     return (
       <div>
         <GenericDropdown
-          options={this.state.displayedRows.reduce((total, role) => { return { ...total, [role]: role }; }, {})}
+          options={this.state.displayedRows.reduce((total, role) => ({ ...total, [role]: role }), {})}
           submit={this.submitRole}
           searchString={this.state.searchString}
           onSearchChange={this.onSearchChange}

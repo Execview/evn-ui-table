@@ -37,9 +37,9 @@ const GenericAssign = (props) => {
 	const rightOptions = generateOptions(allKeys.filter(i => !data.includes(i)));
 		
 
-	const filteredLeftOptions = Object.keys(leftOptions).filter(k => getSearchField(k).toLowerCase().includes(leftSearchString)).reduce((t, k) => { return { ...t, [k]: leftOptions[k] }; }, {});
+	const filteredLeftOptions = Object.keys(leftOptions).filter(k => getSearchField(k).toLowerCase().includes(leftSearchString)).reduce((t, k) => ({...t, [k]: leftOptions[k] }), {});
 
-	const filteredRightOptions = Object.keys(rightOptions).filter(k => getSearchField(k).toLowerCase().includes(rightSearchString)).reduce((t, k) => { return { ...t, [k]: rightOptions[k] }; }, {});
+	const filteredRightOptions = Object.keys(rightOptions).filter(k => getSearchField(k).toLowerCase().includes(rightSearchString)).reduce((t, k) => ({...t, [k]: rightOptions[k] }), {});
 
 	return (
 		<div className={classes["generic-container"]}>
