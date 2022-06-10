@@ -5,7 +5,7 @@ import classes from './ImageDisplay.module.css';
 const ImageDisplay = (props) => {
 	const [selfRef, getDimensions] = useDimensions()
 	const selfDimensions = getDimensions()
-	const data = props.data || [];
+	const data = (typeof(props.data)==='string' ? [props.data]: props.data) || [];
 	const isEditable = props.permission > 1;
 	const emptyText = props.placeholder || '';
 	let circlesLimit = data.length;
