@@ -5,7 +5,7 @@ import classes from './GenericAssignCell.module.css';
 const GenericAssign = (props) => {
 	const data = props.items || [];
 	const allItems = props.allItems || {};
-	const allKeys = !Array.isArray(allItems) ? Object.keys(allItems) : allItems
+	const allKeys = !Array.isArray(allItems) ? Object.keys(allItems) : allItems.map(i=>i.id || i)
 	const isEditable = props.permission > 1
 
 	const [leftSearchString, setLeftSearchString] = useState('');
