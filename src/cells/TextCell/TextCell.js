@@ -31,6 +31,7 @@ const TextCell = (props) => {
 	const submitTextContent = (e) => {
 		const val = e.target.value;
 		props.onValidateSave && props.onValidateSave(val);
+		setText(props.data || '')
 		setTextareaOpen(false);
 	};
 

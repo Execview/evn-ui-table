@@ -95,12 +95,12 @@ const App = (props) => {
 				<img style={{ marginTop: '30px', maxWidth: '100%' }} src={cats[randomNumber]} alt="xd" />
 			</div>
 			<div className={classes["inplacecells"]}>
-				<InPlaceCell data=''  />
-				<InPlaceCell data='' wrap={true} classes={{text:classes['black-text'], textareaPlaceholder:classes['red-text']}} />
-				<InPlaceCell data='green' type={<ColorCell />} />
-				<InPlaceCell data={new Date('2019-12-25')} type={ <DateCell /> } />
-				<InPlaceCell data='apple' type={<DropdownCell options={['apple', 'banana', 'cat']} />} />
-				<InPlaceCell data={['b', 'c']} type={<GenericAssignCell items={gaais} getOption={id => <div>{gaais[id].name}</div>} getSearchField={id => gaais[id].name} display={<Display />} />} style={{width: '70px'}} />
+				<InPlaceCell permission={4} data='hmmmmmmmmmmmmmm'  />
+				<InPlaceCell permission={4} data='' wrap={true} classes={{text:classes['black-text'], textareaPlaceholder:classes['red-text']}} />
+				<InPlaceCell permission={4} data='green' type={<ColorCell />} />
+				<InPlaceCell permission={4} data={new Date('2019-12-25')} type={ <DateCell /> } />
+				<InPlaceCell permission={4} data='apple' type={<DropdownCell options={['apple', 'banana', 'cat']} />} />
+				<InPlaceCell permission={4} data={['b', 'c']} type={<GenericAssignCell items={gaais} getOption={id => <div>{gaais[id].name}</div>} getSearchField={id => gaais[id].name} display={<Display />} />} style={{width: '70px'}} />
 			</div>
 		</div>
 	);
