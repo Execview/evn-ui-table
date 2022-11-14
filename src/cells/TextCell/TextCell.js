@@ -48,7 +48,7 @@ const TextCell = (props) => {
 	
 	const optionalClasses = props.classes || {};
 	
-	const containerClasses = classes['default-cell-container'] + ' ' + (optionalClasses.container || classes['textarea-cell-container']) + ' ' + classes['no-select'] + ' ';
+	const containerClasses = `${classes['default-cell-container']} ${(optionalClasses.container || classes['textarea-cell-container'])} ${classes['no-select']}`
 	const errorContainerClasses = hasError ? classes['cell-error'] : '';
 
 	const textClasses = classes['textarea-cell-text'] + ' ' + (!isEditableStyles ? classes['no-select'] : '') + ' ' + (optionalClasses.text || '') + ' ';
@@ -93,7 +93,7 @@ const TextCell = (props) => {
 
 	return (
 		<div
-			className={containerClasses + errorContainerClasses}
+			className={`${containerClasses} ${errorContainerClasses}`}
 			style={style}
 			onClick={(e) => { if (props.wrap && isEditable) { setTextareaOpen(true); } if (props.onClick) { props.onClick(e); } }}
 		>
