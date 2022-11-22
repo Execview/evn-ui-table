@@ -1,4 +1,4 @@
-import * as config from './configs';
+import * as config from './configs.js';
 
 // Change this number to change displayed data!
 const configNumber = 3;

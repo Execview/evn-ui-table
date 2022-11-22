@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GenericDropdown, RightClickMenuWrapper } from '@execview/reusable';
-import DefaultDropdownDisplay from './DefaultDropdownDisplay';
+import DefaultDropdownDisplay from './DefaultDropdownDisplay.js';
 import classes from './DropdownCell.module.css';
 
 const DropdownCell = (props) => {

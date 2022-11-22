@@ -5,8 +5,8 @@ import { RightClickMenuWrapper } from '@execview/reusable';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import classes from './DateCell.module.css';
-import TextCell from '../TextCell/TextCell';
-import OurDatePicker from './OurDatePicker/OurDatePicker'
+import TextCell from '../TextCell/TextCell.js';
+import OurDatePicker from './OurDatePicker/OurDatePicker.js'
 
 const DateCell = (props) => {
 	const [open, setOpen] = useState(false);

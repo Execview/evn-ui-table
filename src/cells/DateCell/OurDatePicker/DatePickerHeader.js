@@ -2,8 +2,8 @@ import React from 'react'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft, faAngleDoubleRight, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons';
-import InPlaceCell from '../../InPlaceCell/InPlaceCell';
-import DropdownCell from '../../DropdownCell/DropdownCell';
+import InPlaceCell from '../../InPlaceCell/InPlaceCell.js';
+import DropdownCell from '../../DropdownCell/DropdownCell.js';
 import classes from './DatePickerHeader.module.css'
 
 const DatePickerHeader = (props) => {

@@ -1,16 +1,16 @@
 {
 	"name": "@execview/table",
-	"version": "0.1.182",
+	"version": "0.1.185",
 	"main": "./transpiled/exports.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Execview/evn-ui-table.git"
 	},
 	"dependencies": {
-		"@execview/reusable": "0.1.120",
-		"@execview/themedesigner": "0.1.28",
-		"@fortawesome/fontawesome-svg-core": "^6.1.2",
-		"@fortawesome/free-solid-svg-icons": "^6.1.2",
+		"@execview/reusable": "0.1.123",
+		"@execview/themedesigner": "0.1.30",
+		"@fortawesome/fontawesome-svg-core": "^6.2.1",
+		"@fortawesome/free-solid-svg-icons": "^6.2.1",
 		"@fortawesome/react-fontawesome": "^0.2.0",
 		"moment": "2.29.4",
 		"react": "18.2.0",
@@ -18,11 +18,11 @@
 		"react-device-detect": "^2.2.2",
 		"react-dom": "18.2.0",
 		"react-onclickoutside": "^6.12.2",
-		"react-redux": "^8.0.2",
+		"react-redux": "^8.0.5",
 		"react-resize-detector": "^7.1.2",
 		"react-scripts": "5.0.1",
 		"redux": "^4.2.0",
-		"uuid": "^8.3.2"
+		"uuid": "^9.0.0"
 	},
 	"scripts": {
 		"dev": "react-scripts start",

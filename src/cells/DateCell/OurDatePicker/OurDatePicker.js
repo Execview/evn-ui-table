@@ -1,7 +1,7 @@
 import React from 'react'
 import DatePicker from 'react-datepicker';
 import './OurDatePicker.css'
-import DatePickerHeader from './DatePickerHeader'
+import DatePickerHeader from './DatePickerHeader.js'
 
 const OurDatePicker = (props) => {
 	const customHeader = ({...p}) => <DatePickerHeader {...p}/>

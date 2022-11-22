@@ -1,9 +1,9 @@
 import React from 'react'
-import InPlaceCell from '../InPlaceCell/InPlaceCell'
+import InPlaceCell from '../InPlaceCell/InPlaceCell.js'
 import classes from './DateFilter.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
-import DateCell from './DateCell'
+import DateCell from './DateCell.js'
 
 const DateFilter = (props) => {
 	const [meta, setMeta] = [props.meta || {}, props.setMeta || (()=>console.log('no setMeta'))] // {before: date, after: date}

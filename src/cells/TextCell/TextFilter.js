@@ -1,9 +1,9 @@
 import React from 'react'
-import InPlaceCell from '../InPlaceCell/InPlaceCell'
+import InPlaceCell from '../InPlaceCell/InPlaceCell.js'
 import classes from './TextFilter.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
-import TextCell from './TextCell'
+import TextCell from './TextCell.js'
 
 const TextFilter = (props) => {
 	const [meta, setMeta] = [props.meta || '', props.setMeta || (()=>console.log('no setMeta'))] //'xd'

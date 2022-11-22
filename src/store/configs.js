@@ -1,19 +1,19 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { TripleFill, CircleUser } from '@execview/reusable';
-import DropdownCell from '../cells/DropdownCell/DropdownCell';
-import ImageDisplay from '../cells/ImageDisplay/ImageDisplay';
-import GenericAssignCell from '../cells/GenericAssignCell/GenericAssignCell';
-import ColorCell from '../cells/ColorCell/ColorCell';
-import ColorFilter, {filter as ColorFilterFunction} from '../cells/ColorCell/ColorFilter';
-import DateCell from '../cells/DateCell/DateCell';
-import DateFilter, {filter as DateFilterFunction} from '../cells/DateCell/DateFilter'
-import TextCell from '../cells/TextCell/TextCell'
-import TextFilter, {filter as TextFilterFunction} from '../cells/TextCell/TextFilter'
+import DropdownCell from '../cells/DropdownCell/DropdownCell.js';
+import ImageDisplay from '../cells/ImageDisplay/ImageDisplay.js';
+import GenericAssignCell from '../cells/GenericAssignCell/GenericAssignCell.js';
+import ColorCell from '../cells/ColorCell/ColorCell.js';
+import ColorFilter, {filter as ColorFilterFunction} from '../cells/ColorCell/ColorFilter.js';
+import DateCell from '../cells/DateCell/DateCell.js';
+import DateFilter, {filter as DateFilterFunction} from '../cells/DateCell/DateFilter.js'
+import TextCell from '../cells/TextCell/TextCell.js'
+import TextFilter, {filter as TextFilterFunction} from '../cells/TextCell/TextFilter.js'
 
-import UserRoleDisplay from '../UserRoleDisplay/UserRoleDisplay';
-import UserHeader from '../headers/UserHeader/UserHeader';
-import { countries, progressValues } from './constants';
+import UserRoleDisplay from '../UserRoleDisplay/UserRoleDisplay.js';
+import UserHeader from '../headers/UserHeader/UserHeader.js';
+import { countries, progressValues } from './constants.js';
 import classes from '../App.module.css';
 
 const users = {

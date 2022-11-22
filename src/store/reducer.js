@@ -1,5 +1,5 @@
-import * as actionTypes from './actionTypes';
-import { data } from './configSwitch';
+import * as actionTypes from './actionTypes.js';
+import { data } from './configSwitch.js';
 
 const initialState = {
 	data: data

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import Cell from '../cells/Cell/Cell';
-import Resizer from './Resizer/Resizer'
-import DefaultHeader from '../headers/DefaultHeader/DefaultHeader';
+import Cell from '../cells/Cell/Cell.js';
+import Resizer from './Resizer/Resizer.js'
+import DefaultHeader from '../headers/DefaultHeader/DefaultHeader.js';
 import classes from './Table.module.css'
 
 const Table = (props) => {

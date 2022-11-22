@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 import { Button, RightClickMenuWrapper } from '@execview/reusable';
-import TableWrapper from './tableWrapper/TableWrapper';
-import * as actionTypes from './store/actionTypes';
-import { cellTypes, columnsInfo as columnsInfoConfig } from './store/configSwitch';
-import cats from './store/ElCatso';
-import InPlaceCell from './cells/InPlaceCell/InPlaceCell';
-import ColorCell from './cells/ColorCell/ColorCell';
-import DateCell from './cells/DateCell/DateCell';
-import DropdownCell from './cells/DropdownCell/DropdownCell';
-import GenericAssignCell from './cells/GenericAssignCell/GenericAssignCell';
-import ImageDisplay from './cells/ImageDisplay/ImageDisplay';
+import TableWrapper from './tableWrapper/TableWrapper.js';
+import * as actionTypes from './store/actionTypes.js';
+import { cellTypes, columnsInfo as columnsInfoConfig } from './store/configSwitch.js';
+import cats from './store/ElCatso.js';
+import InPlaceCell from './cells/InPlaceCell/InPlaceCell.js';
+import ColorCell from './cells/ColorCell/ColorCell.js';
+import DateCell from './cells/DateCell/DateCell.js';
+import DropdownCell from './cells/DropdownCell/DropdownCell.js';
+import GenericAssignCell from './cells/GenericAssignCell/GenericAssignCell.js';
+import ImageDisplay from './cells/ImageDisplay/ImageDisplay.js';
 import { useThemeApplier, defaultTheme } from '@execview/themedesigner'
 import classes from './App.module.css';
 

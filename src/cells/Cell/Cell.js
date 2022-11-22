@@ -1,5 +1,5 @@
 import React from 'react';
-import TextCell from '../TextCell/TextCell';
+import TextCell from '../TextCell/TextCell.js';
 
 const Cell = (props) => {
 	const errorText = props.errorText || props.errorText === '' ? props.errorText : null;

@@ -1,6 +1,6 @@
 /* eslint-disable guard-for-in */
 import React, {useState} from 'react';
-import Table from '../table/Table';
+import Table from '../table/Table.js';
 import './TableWrapper.css';
 
 const TableWrapper = (props) => {

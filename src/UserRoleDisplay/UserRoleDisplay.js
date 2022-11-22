@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ImageDisplay from '../cells/ImageDisplay/ImageDisplay';
+import ImageDisplay from '../cells/ImageDisplay/ImageDisplay.js';
 import './CircleUser.css';
-import AssignUsers from './AssignUsers';
+import AssignUsers from './AssignUsers.js';
 import { RightClickMenuWrapper } from '@execview/reusable';
 
 const UserRoleDisplay = (props) => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classes from './InPlaceCell.module.css';
-import Cell from '../Cell/Cell';
+import Cell from '../Cell/Cell.js';
 
 
 const InPlaceCell = (props) => {

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown, faTrash, faUsers, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { TripleFill, GenericDropdown, CircleUser } from '@execview/reusable';
 import './CircleUser.css';
-import UserDetails from './UserDetails';
+import UserDetails from './UserDetails.js';
 
 export default class UserMenu extends PureComponent {
   constructor(props) {

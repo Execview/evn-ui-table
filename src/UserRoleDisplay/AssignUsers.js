@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import onClickOutside from 'react-onclickoutside';
 import './CircleUser.css';
-import UserMenu from './UserMenu';
-import AddUserDropDown from './AddUserDropDown';
-import UserAddedConfirmation from './UserAddedConfirmation';
-import AddRole from './AddRole';
+import UserMenu from './UserMenu.js';
+import AddUserDropDown from './AddUserDropDown.js';
+import UserAddedConfirmation from './UserAddedConfirmation.js';
+import AddRole from './AddRole.js';
 
 class AssignUsers extends PureComponent {
   constructor() {

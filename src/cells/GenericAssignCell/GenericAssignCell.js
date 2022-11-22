@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './GenericAssignCell.module.css';
 import { RightClickMenuWrapper } from '@execview/reusable';
-import GenericAssign from './GenericAssign';
+import GenericAssign from './GenericAssign.js';
 
 const GenericAssignCell = (props) => {
 	const permission = props.permission
