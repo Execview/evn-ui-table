@@ -33,7 +33,7 @@ const DropdownCell = (props) => {
 		setDisplayedRows(newRows);
 	};
 
-	const onBlur = () => { props.onValidateSave(props.data); setOpen(false) };
+	const onBlur = () => { if(isEditable){props.onValidateSave(props.data)}; setOpen(false) };
 
 	const options = Object.fromEntries(Object.entries(inputOptions).filter(([o,op]) => displayedRows.includes(o)))
 
@@ -64,7 +64,7 @@ const DropdownCell = (props) => {
 					{...rest}
 					autoscroll={{...defaultAutoScroll,...autoscroll}}
 					onBlur={onBlur}
-					submit={(key) => { props.onValidateSave(key); if(!props.dontCloseOnClick){setOpen(false)} }}
+					submit={(key) => { if(isEditable){props.onValidateSave(key)}; if(!props.dontCloseOnClick){setOpen(false)} }}
 					canSearch={props.canSearch}
 					onSearchChange={onSearchChange}
 					searchString={searchString}
