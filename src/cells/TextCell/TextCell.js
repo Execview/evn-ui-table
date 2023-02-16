@@ -1,106 +1,78 @@
-import React, { useState, useEffect } from 'react';
-import errorIcon from './icons-info.svg';
-import classes from './TextCell.module.css';
+import React, { useState, useEffect } from 'react'
+import TextArea from './TextArea.js'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamation } from '@fortawesome/free-solid-svg-icons';
+import classes from './TextCell.module.css'
 
 const TextCell = (props) => {
-	const [showText, setShowText] = useState(false);
-	const [text, setText] = useState('');
-	const isEditable = props.permission > 1;
-	const isEditableStyles = isEditable || props.isEditableStyles;
-	useEffect(() => setText(props.data || ''), [props.data]);
-	const [textareaOpen, setTextareaOpen] = useState((props.autoFocus && props.wrap) || false);
-	const style = props.style || {};
-	const errorText = props.errorText;
-	const showError = (e) => {
-		e.stopPropagation();
-		if (errorText !== '') {
-			setShowText(true);
-			setTimeout(() => {
-				setShowText(false);
-			}, 3000);
-		}
-	};
+	const [text, setText] = useState('')
+	useEffect(() => setText(props.data || ''), [props.data])
+	const [showErrorText, setShowErrorText] = useState(false)
+	
+	const isEditable = props.permission > 1
+	const looksEditable = isEditable || props.looksEditable
 
-	const onKeyPress = (e) => {
-		const childNode = e.target;
+	const placeholderText = (props.placeholder || 'Type something here...')
+	const errorText = props.errorText
+
+	const showError = e => {
+		e.stopPropagation()
+		if (errorText) {
+			setShowErrorText(true)
+			setTimeout(() => {
+				setShowErrorText(false)
+			}, 3000)
+		}
+	}
+
+	const onBlur = e => {
+		const val = e.target.value
+		setText(val)
+		props.onValidateSave && props.onValidateSave(val)
+	}
+
+	const onChange = e => {
+		setText(e.target.value)
+		props.onChange && props.onChange(e.target.value)
+	}
+
+	const onKeyPress = e => {
+		const childNode = e.target
 		if (e.key === 'Enter' && !(e.shiftKey)) {
 			childNode && childNode.blur()
 		}
-	};
-
-	const submitTextContent = (e) => {
-		const val = e.target.value;
-		props.onValidateSave && props.onValidateSave(val);
-		setText(props.data || '')
-		setTextareaOpen(false);
-	};
-
-	const resizeSelf = (e) => {
-		const childNode = e.target;
-		if (childNode.type === 'textarea') {
-			childNode.style.height = '1px';
-			childNode.style.height = childNode.scrollHeight + 'px';
-		}
-	};
-
-	
-	const hasError = typeof (errorText) === 'string';
-	
-	const optionalClasses = props.classes || {};
-	
-	const containerClasses = `${classes['default-cell-container']} ${(optionalClasses.container || classes['textarea-cell-container'])} ${classes['no-select']}`
-	const errorContainerClasses = hasError ? classes['cell-error'] : '';
-
-	const textClasses = classes['textarea-cell-text'] + ' ' + (!isEditableStyles ? classes['no-select'] : '') + ' ' + (optionalClasses.text || '') + ' ';
-	const errorTextClasses = hasError ? classes['cell-text-error'] + ' ' + (optionalClasses.textError || '') + ' ' : '';
-	
-	const isEditableStylesClasses = isEditableStyles ? classes['is-editable'] + ' ' + (optionalClasses.isEditableStyles || '') + ' ' : '';
-	const errorIconEl = hasError && (
-		<div>
-			<img className={classes['error-icon']} src={errorIcon} alt="info" onClick={e => showError(e)} />
-			<div className={classes['error-info'] + ' ' + optionalClasses.errorText + ' ' + (showText ? classes['error-shown'] : classes['error-hidden'])}>
-				<p className={classes['error-text']}>{errorText}</p>
-			</div>
-		</div>
-	);
-
-	const placeholderText = (props.placeholder || 'Type something here...');
-
-	const textareaProps = {
-		className: (classes['textarea'] + ' ' + textClasses + errorTextClasses + isEditableStylesClasses + (!text && isEditableStyles ? (classes['empty-editable'] + ' ' + (optionalClasses.placeholder || '')) : '')),
-		autoFocus: true,
-		onFocus: resizeSelf
-	};
-
-	const inputProps = {
-		className: (classes['input'] + ' ' + textClasses + errorTextClasses + isEditableStylesClasses + (!text && isEditableStyles ? (classes['empty-editable'] + ' ' + (optionalClasses.placeholder || '')) : '')),
-		disabled: !isEditable,
-		autoFocus: props.autoFocus || false,
-		type: props.password ? 'password' : 'text'
-	};
+	}
 
 	const bothProps = {
+		className: `${classes['corrections']} ${looksEditable ? classes['text'] : ''}`,
 		value: text,
-		onChange: ((e) => { setText(e.target.value); if (props.onChange) { props.onChange(e.target.value); } }),
-		onBlur: (submitTextContent),
+		disabled: !isEditable,
+		autoFocus: props.autoFocus || false,
+		onChange,
+		onBlur,
 		onKeyPress,
-		placeholder: (!text && isEditableStyles ? placeholderText : ''),	
-	};
+		placeholder: (!text && looksEditable ? placeholderText : ''),
+		type: props.password ? 'password' : 'text'
+	}
 
-	const textareaInput = !textareaOpen ? <p style={{ width: '100%', boxSizing: 'border-box' }}>{text || (isEditableStyles && placeholderText)}</p> : <textarea />;
-
-	const inputType = props.wrap ? textareaInput : <input />;
+	const inputType = props.wrap ? <TextArea {...bothProps}/> : <input {...bothProps}/>
 
 	return (
 		<div
-			className={`${containerClasses} ${errorContainerClasses}`}
-			style={style}
-			onClick={(e) => { if (props.wrap && isEditable) { setTextareaOpen(true); } if (props.onClick) { props.onClick(e); } }}
+			className={`${classes['container']} ${looksEditable ? classes['editable'] : ''}`}
+			onClick={(e) => { if (props.onClick) { props.onClick(e) } }}
 		>
-			{React.createElement(inputType.type, { ...inputType.props, ...bothProps, ...(props.wrap ? textareaProps : inputProps) })}
-			{errorIconEl}
+			{inputType}
+			{errorText && (
+				<div className={classes['error']}>
+					<FontAwesomeIcon icon={faExclamation} className={classes['error-icon']} onClick={e => showError(e)}/>
+					<div className={classes['error-info'] + ' ' + (showErrorText ? classes['error-shown'] : '')}>
+						<p className={classes['error-text']}>{errorText}</p>
+					</div>
+				</div>
+			)}
 		</div>
-	);
-};
+	)
+}
 
-export default TextCell;
+export default TextCell

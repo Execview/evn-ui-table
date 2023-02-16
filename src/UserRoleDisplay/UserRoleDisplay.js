@@ -6,7 +6,6 @@ import { RightClickMenuWrapper } from '@execview/reusable';
 
 const UserRoleDisplay = (props) => {
 	const [open, setOpen] = useState(false);
-	console.log('rerender')
 	const getUserProfile = (user) => {
 		return props.userProfiles[user];
 	};
