@@ -1,6 +1,6 @@
 {
 	"name": "@execview/table",
-	"version": "0.1.190",
+	"version": "0.1.191",
 	"main": "./transpiled/exports.js",
 	"repository": {
 		"type": "git",
