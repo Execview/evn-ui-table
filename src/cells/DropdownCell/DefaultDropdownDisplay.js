@@ -9,15 +9,13 @@ const defaultDropdownDisplay = (props) => {
 	const showCaret = props.showCaret;
 	const style = props.style || {};
 
-	const containerClass = props.className || classes['container'];
-	const looksEditableClass = props.editableClassName || classes['looks-editable'];
-
-	const containerClasses = containerClass + ' ' + (looksEditable ? looksEditableClass : '');
+	const containerClass = props.className || props?.classes?.container || classes['container'];
+	const looksEditableClass = props?.classes?.editable || classes['looks-editable'];
 
 	const caret = <FontAwesomeIcon icon={faCaretDown} className={classes['caret']} />;
 
 	return (
-		<div className={containerClasses} style={{ ...style, width: style.width }}>
+		<div className={`${containerClass} ${looksEditable ? looksEditableClass : ''}`} style={{ ...style, width: style.width }}>
 			<div className={classes['content']}>{data}</div>
 			{showCaret && caret}
 		</div>

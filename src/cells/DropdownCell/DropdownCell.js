@@ -37,7 +37,7 @@ const DropdownCell = (props) => {
 
 	const options = Object.fromEntries(Object.entries(inputOptions).filter(([o,op]) => displayedRows.includes(o)))
 
-	const displayCell = props.display || <DefaultDropdownDisplay {...props} data={options[data]} looksEditable={isEditable} showCaret={!inlineMode} />;
+	const displayCell = props.display || <DefaultDropdownDisplay className={props.className} classes={props.classes} data={options[data]} looksEditable={isEditable} showCaret={!inlineMode} />;
 
 	const display = (
 		<div style={{ height: '100%' }}>
