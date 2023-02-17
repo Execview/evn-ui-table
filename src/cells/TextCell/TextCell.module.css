@@ -1,6 +1,7 @@
 .container{
 	height: 100%;
 	width: 100%;
+	position: relative; /* needed to contain the error text */
 }
 
 /* corrections is the css to remove the weird properties of textarea and input */
@@ -42,9 +43,10 @@
 }
 
 .error{
-	height: 100%;
-	width: 100%;
+	height: inherit;
+	width: inherit;
 	top: 0px;
+	left: 0px;
 	position: absolute;
 	pointer-events: none;
 	border-bottom: solid 2px rgb(var(--color18));
