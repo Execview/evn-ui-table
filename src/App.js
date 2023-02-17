@@ -96,7 +96,7 @@ const App = (props) => {
 			</div>
 			<div className={classes["inplacecells"]}>
 				<InPlaceCell permission={4} data='hmmmmmmmmmmmmmm'  />
-				<InPlaceCell permission={4} data='' wrap={true} classes={{text:classes['black-text'], textareaPlaceholder:classes['red-text']}} />
+				<InPlaceCell permission={4} data='' wrap={true} classes={{text: classes['black-text'], editable:  classes['black-text']}} />
 				<InPlaceCell permission={4} data='green' type={<ColorCell />} />
 				<InPlaceCell permission={4} data={new Date('2019-12-25')} type={ <DateCell /> } />
 				<InPlaceCell permission={4} data='apple' type={<DropdownCell options={['apple', 'banana', 'cat']} />} />

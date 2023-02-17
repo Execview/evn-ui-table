@@ -8,10 +8,9 @@ const defaultDropdownDisplay = (props) => {
 	const looksEditable = props.looksEditable;
 	const showCaret = props.showCaret;
 	const style = props.style || {};
-	const optionalClasses = props.classes || {};
 
-	const containerClass = optionalClasses.container || classes['container'];
-	const looksEditableClass = optionalClasses.looksEditable || classes['looks-editable'];
+	const containerClass = props.className || classes['container'];
+	const looksEditableClass = props.editableClassName || classes['looks-editable'];
 
 	const containerClasses = containerClass + ' ' + (looksEditable ? looksEditableClass : '');
 

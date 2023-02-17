@@ -12,6 +12,10 @@ const TextCell = (props) => {
 	const isEditable = props.permission > 1
 	const looksEditable = isEditable || props.looksEditable
 
+	const containerClassName = props?.className || props.classes?.container || ''
+	const textClassName = props?.classes?.text || ''
+	const editableClassName = props?.classes?.editable || classes['editable-text']
+
 	const placeholderText = (props.placeholder || 'Type something here...')
 	const errorText = props.errorText
 
@@ -44,7 +48,7 @@ const TextCell = (props) => {
 	}
 
 	const bothProps = {
-		className: `${classes['corrections']} ${looksEditable ? classes['text'] : ''}`,
+		className: `${classes['corrections']} ${classes['text']} ${textClassName} ${looksEditable ? editableClassName : ''}`,
 		value: text,
 		disabled: !isEditable,
 		autoFocus: props.autoFocus || false,
@@ -59,7 +63,7 @@ const TextCell = (props) => {
 
 	return (
 		<div
-			className={`${classes['container']} ${looksEditable ? classes['editable'] : ''}`}
+			className={`${classes['container']} ${containerClassName}`}
 			onClick={(e) => { if (props.onClick) { props.onClick(e) } }}
 		>
 			{inputType}

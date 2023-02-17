@@ -42,15 +42,15 @@ const DateCell = (props) => {
 
 	const displayProps = {
 		...rest,
-		isEditableStyles: isEditable,
-		classes: { ...props.classes,isEditableStyles: classes['looks-editable'] },
+		looksEditable: isEditable,
+		classes: { ...props.classes, editable: classes['looks-editable'] },
 		data: dateString
 	};
 
 	const editProps = {
 		errorText: props.errorText,
-		classes: {...props.classes,isEditableStyles: classes['looks-editable'],...props.editorClasses},
-		isEditableStyles: isEditable,
+		classes: {...props.classes, editable: classes['looks-editable'],...props.editorClasses},
+		looksEditable: isEditable,
 		isEditable: isEditable,
 		style: props.style,
 		placeholder: editorFormat,

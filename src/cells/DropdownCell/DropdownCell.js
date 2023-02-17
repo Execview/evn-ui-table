@@ -41,7 +41,7 @@ const DropdownCell = (props) => {
 
 	const display = (
 		<div style={{ height: '100%' }}>
-			{React.createElement(displayCell.type, {  data, ...displayCell.props, isEditableStyles: isEditable, style: props.style })}
+			{React.createElement(displayCell.type, {  data, ...displayCell.props, looksEditable: isEditable, style: props.style })}
 		</div>
 	);
 
