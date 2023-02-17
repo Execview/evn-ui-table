@@ -32,7 +32,7 @@ const TextCell = (props) => {
 	const onBlur = e => {
 		const val = e.target.value
 		setText(val)
-		props.onValidateSave && props.onValidateSave(val)
+		props.onValidateSave && (props.data!==val) && props.onValidateSave(val)
 	}
 
 	const onChange = e => {
