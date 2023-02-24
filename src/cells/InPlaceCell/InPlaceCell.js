@@ -10,7 +10,7 @@ const InPlaceCell = (props) => {
 	const { className, style, data, onValidateSave, permission, ...OtherCellProps } = props //OtherCellProps contains permission, errorText and other miscellaneous props.
 
 	return (
-		<div className={`${permission>1 ? classes['default-style'] : ''} ${(props.className || '')}`} style={props.style}>
+		<div className={`${permission>1 ? (props.className||classes['default-style']) : ''} ${(props.className || '')}`} style={props.style}>
 			<Cell data={selfData} onValidateSave={setSelfData} {...{permission, ...OtherCellProps}} />
 		</div>
 	)
