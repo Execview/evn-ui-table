@@ -8,12 +8,30 @@
 	align-items: center;
 }
 
+.container-disabled{
+	cursor: auto;
+	pointer-events: none;
+}
+
 .switch{
 	min-width: 30px;
 	border: 1px solid white;
 	border-radius: 15px;
 	transition: all 0.5s;
 	background-color: rgb(var(--color2));
+}
+
+.switch-checked{
+	background-color: rgb(var(--color17));
+}
+
+.switch-disabled{
+	opacity: 25%;
+	cursor: auto;
+}
+
+.switch:hover{
+	box-shadow: 0px 0px 10px;
 }
 
 .icon{
@@ -24,15 +42,7 @@
 	
 }
 
-.switch:hover{
-	box-shadow: 0px 0px 10px;
-}
-
 .icon-checked{
 	padding-left: 30px;
 	padding-right: 0px;
-}
-
-.switch-checked{
-	background-color: rgb(var(--color17));
 }

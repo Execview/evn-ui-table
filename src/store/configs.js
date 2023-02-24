@@ -164,11 +164,11 @@ export const newData2 = {
 
 export const newData3 = {
 	_1: { meta: {permission: 4}, activityId: '12425', activityTitle: 'Fix PDF', startDate: new Date('2017-08-17T10:39:57.362Z'), latestProgress: 'Fix Chromium', progress: 'green', dueDate: new Date('2018-03-17T10:39:57.362Z'), employeeName: '', assignedGeneric: ['abd4', 'gte3', 'plo4'] },
-	_2: { meta: {permission: 4}, activityId: '1251251', activityTitle: 'Mobile Shipment', startDate: new Date('2017-08-17T10:39:57.362Z'), latestProgress: 'The current task is in progress and about to be evaluated', progress: 'amber', dueDate: new Date('2017-08-17T10:39:57.362Z'), employeeName: 'Mark' },
+	_2: { meta: {permission: 4}, activityId: '1251251', activityTitle: 'Mobile Shipment', startDate: new Date('2017-08-17T10:39:57.362Z'), latestProgress: 'The current task is in progress and about to be evaluated', progress: 'amber', dueDate: new Date('2017-08-17T10:39:57.362Z'), employeeName: 'Mark', finished: true },
 	_3: { meta: {permission: 4}, activityId: '11241', activityTitle: 'Things to Do', startDate: new Date('2017-08-17T10:39:57.362Z'), latestProgress: 'In progress', progress: 'red', employeeName: 'Paul' },
 	_4: { meta: {permission: 1}, activityId: '765976', activityTitle: 'Replace Tire', startDate: new Date('2017-08-17T10:39:57.362Z'), latestProgress: 'Done', dueDate: new Date('1996-09-13T10:39:57.362Z'), employeeName: 'Agam', assignedGeneric: ['abd4'] },
 	_5: { meta: {permission: 4}, activityId: '783434', activityTitle: 'ANUYIC', startDate: new Date('2017-08-17T10:39:57.362Z'), latestProgress: '', employeeName: 'James', progress: 'green' },
-	_6: { meta: {permission: 1}, activityId: '12657', activityTitle: 'OAUWDA', startDate: new Date('2017-08-17T10:39:57.362Z'), latestProgress: '', dueDate: new Date('2019-01-17T10:39:57.362Z'), employeeName: 'Andras', assignedGeneric: [], progress: 'red' },
+	_6: { meta: {permission: 1}, activityId: '12657', activityTitle: 'OAUWDA', startDate: new Date('2017-08-17T10:39:57.362Z'), latestProgress: '', dueDate: new Date('2019-01-17T10:39:57.362Z'), employeeName: 'Andras', assignedGeneric: [], progress: 'red', finished: true },
 	_7: { meta: {permission: 1}, activityId: '612422', activityTitle: 'AWDIA', startDate: new Date('2017-08-17T10:39:57.362Z'), latestProgress: '', employeeName: 'Salman', progress: 'amber' }
 };
 
