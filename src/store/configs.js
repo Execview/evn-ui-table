@@ -15,6 +15,7 @@ import UserRoleDisplay from '../UserRoleDisplay/UserRoleDisplay.js';
 import UserHeader from '../headers/UserHeader/UserHeader.js';
 import { countries, progressValues } from './constants.js';
 import classes from '../App.module.css';
+import CheckboxCell from '../cells/CheckboxCell/CheckboxCell.js';
 
 const users = {
 	abd4: {
@@ -108,7 +109,8 @@ export const cellTypes = {
 	genericAdder: <GenericAssignCell display={<Display />} getOption={getOption} getSearchField={getSearchField} items={Object.keys(users)} leftTitle={leftTitle} rightTitle={rightTitle} />,
 	color: <ColorCell colorStrings={progressValues} inline={true}/>,
 	date: <DateCell />,
-	images: <ImageDisplay />
+	images: <ImageDisplay />,
+	finished: <CheckboxCell />
 };
 
 export const columnsInfo1 = {
@@ -135,6 +137,7 @@ export const columnsInfo3 = {
 	startDate: { cellType: cellTypes['date'], headerType: 'Start Date', width: 10 },
 	dueDate: { cellType: cellTypes['date'], headerType: 'Due Date', width: 10 },
 	assignedGeneric: { cellType: cellTypes['genericAdder'], headerType: 'Assigned Generic', width: 10, headerType: <UserHeader/>, height: 40 },
+	finished: { cellType: cellTypes['finished'], headerType: 'Finished' }
 	// latestProgress: { cellType: cellTypes['textarea'], headerType: 'Latest Progress' }
 	// employeeName: { cellType: cellTypes['dropdown'], headerType: 'Employee Name', width: 400 },
 };

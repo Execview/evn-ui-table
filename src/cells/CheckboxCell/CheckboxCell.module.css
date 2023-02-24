@@ -1,0 +1,38 @@
+.container{
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.switch{
+	min-width: 30px;
+	border: 1px solid white;
+	border-radius: 15px;
+	transition: all 0.5s;
+	background-color: rgb(var(--color2));
+}
+
+.icon{
+	font-size: 1.5em;
+	transition: all 0.5s;
+	padding-left: 0px;
+	padding-right: 30px;
+	
+}
+
+.switch:hover{
+	box-shadow: 0px 0px 10px;
+}
+
+.icon-checked{
+	padding-left: 30px;
+	padding-right: 0px;
+}
+
+.switch-checked{
+	background-color: rgb(var(--color17));
+}

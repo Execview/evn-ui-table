@@ -15,6 +15,7 @@ import ImageDisplay from './cells/ImageDisplay/ImageDisplay.js';
 import InPlaceCell from './cells/InPlaceCell/InPlaceCell.js';
 import TextCell from './cells/TextCell/TextCell.js';
 import TextFilter, {filter as TextFilterFunction}  from './cells/TextCell/TextFilter.js';
+import CheckboxCell from './cells/CheckboxCell/CheckboxCell.js';
 
 export {
 	Table,
@@ -26,6 +27,7 @@ export {
 	ColorFilter,
 	ColorFilterFunction,
 	DateCell,
+	CheckboxCell,
 	DateFilter,
 	DateFilterFunction,
 	DropdownCell,
