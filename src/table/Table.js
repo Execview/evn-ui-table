@@ -122,13 +122,12 @@ const Table = (props) => {
 		})
 	})
 
-	const gridTemplateColumnsString = Object.entries(columnsInfo).reduce((t,[c,col]) => `${t} [${c}] minmax(${col.minWidth ? col.minWidth+'px' : DEFAULT_MINIMUM_WIDTH},${widths[c]+'fr'})`, '')
-
-	const gridTemplateRowsString = ''//Object.keys(data).reduce((t,k)=>`${t} [${k}] auto`,'')
+	// id- prefix is needed since css grid wont work if the name starts with a number. the name isnt used for anything currently anyway
+	const gridTemplateColumnsString = Object.entries(columnsInfo).reduce((t,[c,col]) => `${t} [id-${c}] minmax(${col.minWidth ? col.minWidth+'px' : DEFAULT_MINIMUM_WIDTH},${widths[c]+'fr'})`, '')
 
 	return (
 		<div className={classes['horizontal-scroll']}>
-			<div style={{ display: 'grid', gridTemplateColumns: gridTemplateColumnsString, gridTemplateRows: gridTemplateRowsString, gridRowGap: 1 }} ref={props.tableRef}>
+			<div style={{ display: 'grid', gridTemplateColumns: gridTemplateColumnsString, gridRowGap: 1 }} ref={props.tableRef}>
 				{header}
 				{cells}
 			</div>
