@@ -13,7 +13,6 @@ const TextArea = ({style, onChange, ...otherProps}) => {
 			setHasChanged(false)
 		} else {
 			if(ref?.current && height!==ref.current.scrollHeight && ref.current.scrollHeight > ref.current.clientHeight){
-				console.log(height, ref.current.scrollHeight)
 				setHeight(ref.current.scrollHeight)
 			}
 		}
