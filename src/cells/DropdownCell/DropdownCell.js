@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { GenericDropdown, RightClickMenuWrapper } from '@execview/reusable';
+import { GenericDropdown, RightClickMenuWrapper, useDimensions } from '@execview/reusable';
 import DefaultDropdownDisplay from './DefaultDropdownDisplay.js';
 import classes from './DropdownCell.module.css';
 
 const DropdownCell = (props) => {
+	const [selfRef, getDimensions] = useDimensions()
+	const selfDimensions = getDimensions()
 	const isEditable = props.permission > 1;
 	const [internalOpen, setInternalOpen] = useState(false)
 	const [open, setOpen] = props.setOpen ? [props.open, props.setOpen] : [internalOpen, setInternalOpen]
@@ -53,13 +55,14 @@ const DropdownCell = (props) => {
 		id: data
 	}
 
+	const width = Math.max(selfDimensions.width, isNaN(rcmStyle?.width) ? 0 : rcmStyle?.width, 137)
 
 	return (
-		<div style={{ height: '100%' }}>
+		<div ref={selfRef} style={{ height: '100%' }}>
 			<div style={{ height: '100%' }}>
 				{display}
 			</div>
-			<RightClickMenuWrapper onLeftClick inline={inlineMode} takeParentLocation open={open} setOpen={setOpen} rightClickMenuStyle={rcmStyle} rightClickMenuClassName={`${classes['rcm']} ${rcmClassName||''}`} {...otherRCMWProps}>
+			<RightClickMenuWrapper onLeftClick inline={inlineMode} takeParentLocation open={open} setOpen={setOpen} rightClickMenuStyle={{...rcmStyle, width}} rightClickMenuClassName={`${classes['rcm']} ${rcmClassName||''}`} {...otherRCMWProps}>
 				<GenericDropdown
 					{...rest}
 					autoscroll={{...defaultAutoScroll,...autoscroll}}

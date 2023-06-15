@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react"
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
 // React has to be imported here. Not sure why. Only affects when this component is used in other projects
 
 // This is a standard textarea with automatic height
@@ -17,6 +17,8 @@ const TextArea = ({style, onChange, ...otherProps}) => {
 			}
 		}
 	})
+	// needed to set the height correctly on first render
+	useEffect(()=>{setHasChanged(true)},[])
 
 	return (
 		<textarea ref={ref} onChange={e=>{setHasChanged(true);onChange(e)}} style={{height: `${height}px`,...style}} {...otherProps}/>
