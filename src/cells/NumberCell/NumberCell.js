@@ -3,21 +3,20 @@ import TextCell from "../TextCell/TextCell.js"
 import classes from './NumberCell.module.css'
 
 const NumberCell =  props => {
-	const prefix = props.prefix || ""
-	const {onValidateSave, data, ...otherProps} = props
+	const {onValidateSave, data, prefix, placeholder, ...otherProps} = props
 	const onSave = data => {
-		const cleanData = data.replaceAll(prefix,'')
-		onValidateSave(parseFloat(cleanData))
-	} 
+		onValidateSave(parseFloat(data))
+	}
 	return (
-		// <div className={classes['number-cell']}>
-		// 	<div>$</div>
+		<div className={classes['number-cell']}>
+			<div>{data && prefix}</div>
 			<TextCell {...{
 				...otherProps,
-				data: data ? `${prefix}${data}` : null,
+				data,
+				placeholder: `Enter a number...`,
 				onValidateSave: onSave
 			}}/>
-		// </div>
+		</div>
 		
 	)
 }
