@@ -47,6 +47,10 @@ const TextCell = (props) => {
 		}
 	}
 
+	let type = 'text'
+	if(props.password){type = 'password'}
+	if(props.number){type = 'number'}
+
 	const bothProps = {
 		className: `${classes['corrections']} ${classes['text']} ${textClassName} ${looksEditable ? editableClassName : ''}`,
 		value: text,
@@ -56,7 +60,7 @@ const TextCell = (props) => {
 		onBlur,
 		onKeyPress,
 		placeholder: (!text && looksEditable ? placeholderText : ''),
-		type: props.password ? 'password' : 'text'
+		type
 	}
 
 	const inputType = props.wrap ? <TextArea {...bothProps}/> : <input {...bothProps}/>
