@@ -36,8 +36,18 @@ const TextCell = (props) => {
 	}
 
 	const onChange = e => {
-		setText(e.target.value)
-		props.onChange && props.onChange(e.target.value)
+		let text = (e.target.value).toString()
+
+		if(props.number){
+			const allowedChars = ['1','2','3','4','5','6','7','8','9','0','.','+','-','e','']
+			const lastChar = text.slice(-1)
+			if(!allowedChars.includes(lastChar)){return}
+			if(text.includes('..')){
+				text = text==='..' ? '-' : (parseFloat(text.replace('..','')||0)*-1).toString()
+			}
+		}
+		setText(text)
+		props.onChange && props.onChange(text)
 	}
 
 	const onKeyPress = e => {
@@ -49,7 +59,6 @@ const TextCell = (props) => {
 
 	let type = 'text'
 	if(props.password){type = 'password'}
-	if(props.number){type = 'number'}
 
 	const bothProps = {
 		className: `${classes['corrections']} ${classes['text']} ${textClassName} ${looksEditable ? editableClassName : ''}`,
@@ -60,7 +69,8 @@ const TextCell = (props) => {
 		onBlur,
 		onKeyPress,
 		placeholder: (!text && looksEditable ? placeholderText : ''),
-		type
+		type,
+		inputMode: props.number ? 'decimal' : 'text'
 	}
 
 	const inputType = props.wrap ? <TextArea {...bothProps}/> : <input {...bothProps}/>
