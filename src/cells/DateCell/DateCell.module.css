@@ -16,5 +16,6 @@
 }
 
 .looks-editable {
+	color: rgb(var(--color9));
 	cursor: pointer;
 }

@@ -48,10 +48,10 @@ const DateCell = (props) => {
 	};
 
 	const editProps = {
+		autofocus: true,
 		errorText: props.errorText,
 		classes: {...props.classes, editable: classes['looks-editable'],...props.editorClasses},
-		looksEditable: isEditable,
-		isEditable: isEditable,
+		permission: props.permission,
 		style: props.style,
 		placeholder: editorFormat,
 		data: editorContent,

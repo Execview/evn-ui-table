@@ -6,8 +6,15 @@ import InPlaceCell from '../../InPlaceCell/InPlaceCell.js';
 import DropdownCell from '../../DropdownCell/DropdownCell.js';
 import classes from './DatePickerHeader.module.css'
 
-const DatePickerHeader = (props) => {
-	const date = props.date
+const DatePickerHeader = ({
+	date,
+	decreaseYear,
+	decreaseMonth,
+	increaseYear,
+	increaseMonth,
+	changeYear,
+	changeMonth
+}) => {
 	const yearRange = 40
 
 	const getDropdownScroll = (d) => {
@@ -24,16 +31,45 @@ const DatePickerHeader = (props) => {
 
 	return (
 		<div className={classes['custom-header']}>
-			<FontAwesomeIcon className={classes['arrow']} icon={faAngleDoubleLeft} onClick={props.decreaseYear} />
-			<FontAwesomeIcon className={classes['arrow']} icon={faAngleLeft} onClick={props.decreaseMonth} />
+			<FontAwesomeIcon className={classes['arrow']} icon={faAngleDoubleLeft} onClick={decreaseYear} />
+			<FontAwesomeIcon className={classes['arrow']} icon={faAngleLeft} onClick={decreaseMonth} />
 			<div className={classes['date']}>
-				{/* <div>{moment(date).format('MMM')}</div> */}
-				<InPlaceCell onValidateSave={(m)=>props.changeMonth(months.indexOf(m))} data={selectedMonth} type={<DropdownCell options={monthOptions} rightClickMenuWrapperProps={{dontPortal: true, rcmClassName: classes['month-picker-rcm'], moveBox:[100,15], slideBox:75}}/>} />
-				<InPlaceCell onValidateSave={props.changeYear} data={selectedYear} type={<DropdownCell options={yearOptions} rightClickMenuWrapperProps={{dontPortal: true, rcmClassName: classes['year-picker-rcm'], moveBox:[135,15], slideBox:50}}/>} />
+				<InPlaceCell
+					onValidateSave={(m)=>changeMonth(months.indexOf(m))}
+					data={selectedMonth}
+					permission={4}
+					type={(
+						<DropdownCell
+							options={monthOptions}
+							rightClickMenuWrapperProps={{
+								dontPortal: true,
+								rcmClassName: classes['month-picker-rcm'],
+								moveBox:[100,15],
+								slideBox:75
+							}}
+						/>
+					)} 
+				/>
+				<InPlaceCell
+					onValidateSave={changeYear}
+					data={selectedYear}
+					permission={4}
+					type={(
+						<DropdownCell
+							options={yearOptions}
+							rightClickMenuWrapperProps={{
+								dontPortal: true,
+								rcmClassName: classes['year-picker-rcm'],
+								moveBox:[135,15],
+								slideBox:50
+							}}
+						/>
+					)}
+				/>
 				
 			</div>
-			<FontAwesomeIcon className={classes['arrow']} icon={faAngleRight} onClick={props.increaseMonth} />
-			<FontAwesomeIcon className={classes['arrow']} icon={faAngleDoubleRight} onClick={props.increaseYear} />
+			<FontAwesomeIcon className={classes['arrow']} icon={faAngleRight} onClick={increaseMonth} />
+			<FontAwesomeIcon className={classes['arrow']} icon={faAngleDoubleRight} onClick={increaseYear} />
 		</div>
 	)
 }
