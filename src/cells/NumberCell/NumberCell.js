@@ -13,7 +13,7 @@ const NumberCell =  ({
 
 	const onSave = numString => {
 		const num = parseFloat(numString||0)
-		if(numString.includes('+')){
+		if(numString.includes('+') || numString.includes('-')){
 			onValidateSave && onValidateSave(num)
 		} else {
 			onValidateSave && onValidateSave(num*(data<=0 ? -1 : 1))
