@@ -23,7 +23,7 @@ const GenericAssign = (props) => {
 	const getSearchField = props.getSearchField || (() => { console.log('cant search'); return ''; });
 	const getOption = props.getOption || (() => { console.log('cant generate options'); return {}; });
 
-	const generateOptions = (ids) => {
+	const generateOptions = (ids=[]) => {
 		return ids.reduce((t, id) => {
 			const option = getOption(id);
 			return { ...t,

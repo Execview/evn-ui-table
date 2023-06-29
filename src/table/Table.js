@@ -19,9 +19,9 @@ const Table = (props) => {
 		const normalisedWidths = Object.fromEntries(Object.entries(widths).map(([c,w])=>[c,w/normalisationFactor]))
 		return normalisedWidths
 	}
-	const averageWidth = Object.values(columnsInfo).filter(v=>v.width).reduce((t,v,i)=>{if(i===0){return v.width || 0}return (t*i+v.width)/(i+1)},0) || 1 // calculates the average of the frs that exist
+	const averageWidth = Object.values(columnsInfo).filter(v=>v?.width).reduce((t,v,i)=>{if(i===0){return v.width || 0}return (t*i+v.width)/(i+1)},0) || 1 // calculates the average of the frs that exist
 	const getWidthsFromColumnsInfo = (ci) => Object.fromEntries(Object.entries(ci).map(([k, col]) => {
-		return [k, (col.width || col.width===0) ? col.width : averageWidth]
+		return [k, (col?.width || col?.width===0) ? col?.width : averageWidth]
 	}))
 
 	const externalSetWidths = (newWidths) => {
@@ -93,7 +93,7 @@ const Table = (props) => {
 	Object.keys(columnsInfo).forEach((col, i) => {
 		const firstOne = i===0
 		const column = columnsInfo[col];
-		const headerType = typeof (column.headerType) === 'string' ? <DefaultHeader data={column.headerType}/> : column.headerType
+		const headerType = typeof (column?.headerType) === 'string' ? <DefaultHeader data={column?.headerType}/> : column?.headerType
 		header.push(
 			<div key={col+i} className={`${classes['cell']} ${classes['header']}`} style={{ position: 'relative'}}>
 				{props.getContextMenu && props.getContextMenu(col)}
@@ -123,7 +123,7 @@ const Table = (props) => {
 	})
 
 	// id- prefix is needed since css grid wont work if the name starts with a number. the name isnt used for anything currently anyway
-	const gridTemplateColumnsString = Object.entries(columnsInfo).reduce((t,[c,col]) => `${t} [id-${c}] minmax(${col.minWidth ? col.minWidth+'px' : DEFAULT_MINIMUM_WIDTH},${widths[c]+'fr'})`, '')
+	const gridTemplateColumnsString = Object.entries(columnsInfo).reduce((t,[c,col]) => `${t} [id-${c}] minmax(${col?.minWidth ? col?.minWidth+'px' : DEFAULT_MINIMUM_WIDTH},${widths[c]+'fr'})`, '')
 
 	return (
 		<div className={classes['horizontal-scroll']}>
